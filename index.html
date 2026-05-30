@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ateliê São José de Cupertino - Arte Sacra</title>
+    <style>
+        :root {
+            --azul-brasao: #0d232f;       
+            --verde-brasao: #0b2e24;      
+            --ouro-brasao: #c5a059;       
+            --fundo-claro: #fcfbfa;       
+            --texto-escuro: #1c2621;
+            --texto-claro: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        body {
+            background-color: var(--fundo-claro);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--azul-brasao);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--ouro-brasao);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo-texto {
+            color: var(--ouro-brasao);
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        nav .redes-topo a {
+            color: var(--texto-claro);
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav .redes-topo a:hover {
+            color: var(--ouro-brasao);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(13, 35, 47, 0.85), rgba(11, 46, 36, 0.9)), url('https://images.unsplash.com/photo-1601002955526-a90ba53f418d?q=80&w=1000') no-repeat center center/cover;
+            height: 65vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            color: var(--texto-claro);
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            color: var(--ouro-brasao);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #e0e0e0;
+        }
+
+        .btn-principal {
+            background-color: var(--ouro-brasao);
+            color: var(--azul-brasao);
+            padding: 12px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            border: 1px solid var(--ouro-brasao);
+        }
+
+        .btn-principal:hover {
+            background-color: transparent;
+            color: var(--ouro-brasao);
+            transform: scale(1.03);
+        }
+
+        .manifesto {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #f4f2ee;
+            border-bottom: 1px solid #e0dbd3;
+        }
+
+        .manifesto h2 {
+            color: var(--verde-brasao);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .manifesto p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .catalogo {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .catalogo h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--azul-brasao);
+            font-size: 1.9rem;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 30px;
+        }
+
+        .card-produto {
+            background: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(13,35,47,0.06);
+            transition: transform 0.3s ease;
+            border: 1px solid #e6e3dd;
+        }
+
+        .card-produto:hover {
+            transform: translateY(-4px);
+            border-color: var(--ouro-brasao);
+        }
+
+        .foto-container {
+            width: 100%;
+            height: 280px;
+            background-color: #eae7e1;
+            overflow: hidden;
+        }
+
+        .foto-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info-produto {
+            padding: 20px;
+        }
+
+        .info-produto h3 {
+            margin-bottom: 10px;
+            color: var(--verde-brasao);
+            font-size: 1.3rem;
+        }
+
+        .info-produto p {
+            font-size: 0.95rem;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .nota-exclusividade {
+            font-size: 0.8rem;
+            color: #666;
+            background: #fdfaf2;
+            padding: 10px;
+            border-left: 3px solid var(--ouro-brasao);
+            margin-bottom: 15px;
+            border-radius: 2px;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background-color: #1e7e34;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--verde-brasao);
+        }
+
+        .frete-secao {
+            background-color: #f4f2ee;
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 1px solid #e0dbd3;
+        }
+
+        .frete-conteudo {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .frete-conteudo h3 {
+            color: var(--azul-brasao);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        footer {
+            background-color: var(--azul-brasao);
+            color: #a0b0b8;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--ouro-brasao);
+        }
+
+        footer p {
+            margin-bottom: 12px;
+        }
+
+        .redes-rodape a {
+            color: var(--ouro-brasao);
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .redes-rodape a:hover {
+            color: var(--texto-claro);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-texto">São José de Cupertino</div>
+        <div class="redes-topo">
+            <a href="#catalogo">Catálogo</a>
+            <a href="https://www.facebook.com/share/1ACGXiWR38/" target="_blank">Facebook</a>
+            <a href="https://www.tiktok.com/@ateliesaoj.decupertino?_r=1&_t=ZS-96n9mkIeYSa_" target="_blank">TikTok</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Ateliê São José de Cupertino</h1>
+        <p>A Tradição Católica Esculpida na Madeira. Arte sacra devocional e peças ornamentais com identidade própria e acabamento rústico premium.</p>
+        <a href="#catalogo" class="btn-principal">Conhecer o Catálogo</a>
+    </header>
+
+    <section class="manifesto">
+        <h2>Fé, Tradição e Arte</h2>
+        <p>No Ateliê São José de Cupertino, a beleza da fé ganha forma através da nobreza da emburana de espinho. Cada obra é o resultado de uma busca constante pela excelência artística, onde o respeito aos critérios da iconografia católica tradicional se une ao cuidado minucioso do acabamento e da pintura artesanal.</p>
+    </section>
+
+    <main class="catalogo" id="catalogo">
+        <h2>Nosso Portfólio Devocional</h2>
+        <div class="grid-produtos">
+
+            <div class="card-produto">
+                <div class="foto-container">
+                    <img src="saovicente.jpg" alt="São Vicente Ferrer - Anjo do Apocalipse">
+                </div>
+                <div class="info-produto">
+                    <h3>São Vicente Ferrer (Anjo do Apocalipse)</h3>
+                    <p>Escultura sacra esculpida em emburana de espinho. A peça destaca-se pela imponência de suas asas e o livro sagrado. O acabamento rústico premium preserva a força natural da madeira.</p>
+                    <div class="nota-exclusividade">Por ser uma obra artesanal e manual, cada escultura possui identidade única. Variações naturais nos veios da madeira e na pintura garantem uma peça exclusiva.</div>
+                    <a href="https://wa.me/558981198874?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20a%20escultura%20de%20São%20Vicente%20Ferrer%20que%20vi%20no%20site." class="btn-whatsapp" target="_blank">Encomendar via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="card-produto">
+                <div class="foto-container">
+                    <img src="nossasenhora.jpg" alt="Nossa Senhora do Sertão">
+                </div>
+                <div class="info-produto">
+                    <h3>Nossa Senhora do Sertão</h3>
+                    <p>Uma belíssima expressão de fé e identidade regional. Une a força da devoção mariana contextualizada à nossa terra. Polimento refinado e pintura artesanal minuciosa.</p>
+                    <div class="nota-exclusividade">Por ser uma obra artesanal e manual, cada escultura possui identidade única. Variações naturais nos veios da madeira e na pintura garantem uma peça exclusiva.</div>
+                    <a href="https://wa.me/558981198874?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20a%20imagem%20de%20Nossa%20Senhora%20do%20Sertão%20que%20vi%20no%20site." class="btn-whatsapp" target="_blank">Encomendar via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="card-produto">
+                <div class="foto-container">
+                    <img src="paineis.jpg" alt="Painéis em Baixo-Relevo">
+                </div>
+                <div class="info-produto">
+                    <h3>Painéis em Baixo-Relevo</h3>
+                    <p>Quadro entalhado em baixo-relevo trazendo composições ricas em detalhes geométricos e molduras. Cores sólidas e contrastantes destacam os símbolos sagrados.</p>
+                    <div class="nota-exclusividade">Por ser uma obra artesanal e manual, cada escultura possui identidade única. Variações naturais nos veios da madeira e na pintura garantem uma peça exclusiva.</div>
+                    <a href="https://wa.me/558981198874?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20os%20Painéis%20em%20Baixo-Relevo%20que%20vi%20no%20site." class="btn-whatsapp" target="_blank">Encomendar via WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <section class="frete-secao">
+        <div class="frete-conteudo">
+            <h3>Entrega e Envio Personalizado</h3>
+            <p>Como nossas esculturas possuem dimensões e pesos variados, o cálculo do frete é feito sob medida no momento do seu atendimento. Cotamos em tempo real para garantir total segurança até o seu altar.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ateliê São José de Cupertino. Todos os direitos reservados.</p>
+        <p>Arte Sacra Premium & Peças Devocionais.</p>
+        <div class="redes-rodape">
+            <a href="https://www.facebook.com/share/1ACGXiWR38/" target="_blank">Facebook</a> | 
+            <a href="https://www.tiktok.com/@ateliesaoj.decupertino?_r=1&_t=ZS-96n9mkIeYSa_" target="_blank">TikTok</a>
+        </div>
+    </footer>
+
+</body>
+</html>
